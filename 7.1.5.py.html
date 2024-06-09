@@ -1,0 +1,56 @@
+def strlen(s):
+    """Returns the length of the string."""
+    length = 0
+    for _ in s:
+        length += 1
+    return length
+
+def strcpy(source):
+    """Returns a copy of the source string."""
+    return source[:] 
+
+def strcat(dest, source):
+    """Concatenates the source string to the destination string."""
+    return dest + source
+
+def strstr(haystack, needle):
+    """Finds the first occurrence of the substring needle in the string haystack."""
+    n_len = strlen(needle)
+    for i in range(strlen(haystack) - n_len + 1):
+        if haystack[i:i + n_len] == needle:
+            return haystack[i:]
+    return None
+
+def strrchr(s, char):
+    """Finds the last occurrence of the character in the string."""
+    index = -1
+    for i in range(strlen(s)):
+        if s[i] == char:
+            index = i
+    return None if index == -1 else s[index:]
+
+first_string = "hello world"
+second_string = "world"
+print(f"Length of first string: {strlen(first_string)}")
+print(f"Length of second string: {strlen(second_string)}")
+copy_of_first = strcpy(first_string)
+print(f"Copy of first string: {copy_of_first}")
+concatenated_string = strcat(first_string, second_string)
+print(f"Concatenation of both strings: {concatenated_string}")
+substring_found = strstr(first_string, second_string)
+if substring_found:
+    print(f"Substring '{second_string}' found in '{first_string}': {substring_found}")
+else:
+    print(f"Substring '{second_string}' not found in '{first_string}'")
+char_to_find = 'o'
+last_occurrence = strrchr(first_string, char_to_find)
+if last_occurrence:
+    print(f"Last occurrence of character '{char_to_find}' in '{first_string}': {last_occurrence}")
+else:
+    print(f"Character '{char_to_find}' not found in '{first_string}'")
+char_to_find = 'z'
+last_occurrence = strrchr(first_string, char_to_find)
+if last_occurrence:
+    print(f"Last occurrence of character '{char_to_find}' in '{first_string}': {last_occurrence}")
+else:
+    print(f"Character '{char_to_find}' not found in '{first_string}'")

@@ -1,0 +1,55 @@
+def string_length(s):
+    """Returns the length of the string."""
+    length = 0
+    for _ in s:
+        length += 1
+    return length
+
+def copy_string(s):
+    """Returns a copy of the string."""
+    return s[:] 
+def concatenate_strings(s1, s2):
+    """Concatenates two strings."""
+    return s1 + s2
+def to_uppercase(s):
+    """Converts the string to uppercase."""
+    result = ""
+    for char in s:
+        if 'a' <= char <= 'z':
+            result += chr(ord(char) - 32)
+        else:
+            result += char
+    return result
+
+def compare_strings(s1, s2):
+    """Compares two strings alphabetically."""
+    if s1 < s2:
+        return -1
+    elif s1 > s2:
+        return 1
+    else:
+        return 0
+
+def main():
+    first_string = input("Enter the first string: ")
+    second_string = input("Enter the second string: ")
+    len_first = string_length(first_string)
+    len_second = string_length(second_string)
+    copy_first = copy_string(first_string)
+    concatenated = concatenate_strings(first_string, second_string)
+    uppercase_first = to_uppercase(first_string)
+    comparison_result = compare_strings(first_string, second_string)
+    print(f"Length of first string: {len_first}")
+    print(f"Length of second string: {len_second}")
+    print(f"Copy of first string: {copy_first}")
+    print(f"Concatenation of both strings: {concatenated}")
+    print(f"Uppercase of first string: {uppercase_first}")
+    
+    if comparison_result < 0:
+        print("First string is alphabetically before second string.")
+    elif comparison_result > 0:
+        print("First string is alphabetically after second string.")
+    else:
+        print("Both strings are alphabetically equal.")
+if __name__ == "__main__":
+    main()
